@@ -3,5 +3,8 @@
     "require": {
         "joshdifabio/composed": "^1.0",
         "igorw/get-in": "^1.0"
+    },
+    "autoload": {
+        "files": ["src/functions_include.php"]
     }
 }
