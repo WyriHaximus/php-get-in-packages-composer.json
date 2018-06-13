@@ -1,5 +1,5 @@
 {
-    "name": "get-in-packages-composer.json",
+    "name": "wyrihaximus/get-in-packages-composer.json",
     "require": {
         "joshdifabio/composed": "^1.0",
         "igorw/get-in": "^1.0"
