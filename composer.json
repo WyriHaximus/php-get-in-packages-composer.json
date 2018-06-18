@@ -4,7 +4,21 @@
         "joshdifabio/composed": "^1.0",
         "igorw/get-in": "^1.0"
     },
+    "require-dev": {
+        "api-clients/test-utilities": "^5.0"
+    },
     "autoload": {
         "files": ["src/functions_include.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WyriHaximus\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "7.2"
+        }
     }
 }
