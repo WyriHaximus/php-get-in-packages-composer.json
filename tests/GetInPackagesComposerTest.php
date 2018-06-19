@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace WyriHaximus\Tests;
 
@@ -13,7 +13,7 @@ final class GetInPackagesComposerTest extends TestCase
         $config = [];
         /**
          * @var Package $package
-         * @var array $value
+         * @var array   $value
          */
         foreach (get_in_packages_composer('config') as $package => $value) {
             $config[$package->getName()] = $value;

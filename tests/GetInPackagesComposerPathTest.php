@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace WyriHaximus\Tests;
 
@@ -13,7 +13,7 @@ final class GetInPackagesComposerPathTest extends TestCase
         $config = [];
         /**
          * @var Package $package
-         * @var array $value
+         * @var array   $value
          */
         foreach (get_in_packages_composer_path('autoload.files') as $path) {
             $config[$path] = $path;

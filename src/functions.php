@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace WyriHaximus;
 
@@ -30,11 +30,11 @@ function get_in_packages_composer_path(string $path, bool $includeRoot = true): 
 {
     /**
      * @var Package $package
-     * @var mixed $items
+     * @var mixed   $items
      */
     foreach (get_in_packages_composer($path, $includeRoot) as $package => $items) {
         /**
-         * @var mixed $item
+         * @var mixed  $item
          * @var string $path
          */
         foreach ($items as $item => $itemPath) {
@@ -47,11 +47,11 @@ function get_in_packages_composer_with_path(string $path, bool $includeRoot = tr
 {
     /**
      * @var Package $package
-     * @var mixed $items
+     * @var mixed   $items
      */
     foreach (get_in_packages_composer($path, $includeRoot) as $package => $items) {
         /**
-         * @var mixed $item
+         * @var mixed  $item
          * @var string $path
          */
         foreach ($items as $item => $itemPath) {

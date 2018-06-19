@@ -1,9 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace WyriHaximus\Tests;
 
 use ApiClients\Tools\TestUtilities\TestCase;
-use Composed\Package;
 use function WyriHaximus\from_get_in_packages_composer;
 
 final class FromGetInPackagesComposerTest extends TestCase
