@@ -5,9 +5,12 @@ namespace WyriHaximus\Tests;
 use ApiClients\Tools\TestUtilities\TestCase;
 use function WyriHaximus\from_get_in_packages_composer;
 
+/**
+ * @internal
+ */
 final class FromGetInPackagesComposerTest extends TestCase
 {
-    public function testConfig()
+    public function testConfig(): void
     {
         $config = [];
         foreach (from_get_in_packages_composer('config') as $key => $value) {
