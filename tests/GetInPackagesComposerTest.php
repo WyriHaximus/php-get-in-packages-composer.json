@@ -6,9 +6,12 @@ use ApiClients\Tools\TestUtilities\TestCase;
 use Composed\Package;
 use function WyriHaximus\get_in_packages_composer;
 
+/**
+ * @internal
+ */
 final class GetInPackagesComposerTest extends TestCase
 {
-    public function testConfig()
+    public function testConfig(): void
     {
         $config = [];
         /**

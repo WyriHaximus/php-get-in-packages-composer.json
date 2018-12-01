@@ -9,7 +9,7 @@ function get_in_packages_composer(string $path, bool $includeRoot = true): itera
 {
     /** @var Package $package */
     foreach (packages($includeRoot) as $package) {
-        $config = $package->getConfig(explode('.', $path));
+        $config = $package->getConfig(\explode('.', $path));
 
         if ($config === null) {
             continue;
