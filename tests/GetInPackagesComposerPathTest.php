@@ -23,9 +23,9 @@ final class GetInPackagesComposerPathTest extends TestCase
         }
         self::assertSame(
             [
-                \dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'functions_include.php' => \dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'functions_include.php',
-                \dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'igorw' . DIRECTORY_SEPARATOR . 'get-in' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'get_in.php' => \dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'igorw' . DIRECTORY_SEPARATOR . 'get-in' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'get_in.php',
-                \dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'joshdifabio' . DIRECTORY_SEPARATOR . 'composed' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'functions_include.php' => \dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'joshdifabio' . DIRECTORY_SEPARATOR . 'composed' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'functions_include.php',
+                \dirname(__DIR__) . \DIRECTORY_SEPARATOR . 'src' . \DIRECTORY_SEPARATOR . 'functions_include.php' => \dirname(__DIR__) . \DIRECTORY_SEPARATOR . 'src' . \DIRECTORY_SEPARATOR . 'functions_include.php',
+                \dirname(__DIR__) . \DIRECTORY_SEPARATOR . 'vendor' . \DIRECTORY_SEPARATOR . 'igorw' . \DIRECTORY_SEPARATOR . 'get-in' . \DIRECTORY_SEPARATOR . 'src' . \DIRECTORY_SEPARATOR . 'get_in.php' => \dirname(__DIR__) . \DIRECTORY_SEPARATOR . 'vendor' . \DIRECTORY_SEPARATOR . 'igorw' . \DIRECTORY_SEPARATOR . 'get-in' . \DIRECTORY_SEPARATOR . 'src' . \DIRECTORY_SEPARATOR . 'get_in.php',
+                \dirname(__DIR__) . \DIRECTORY_SEPARATOR . 'vendor' . \DIRECTORY_SEPARATOR . 'joshdifabio' . \DIRECTORY_SEPARATOR . 'composed' . \DIRECTORY_SEPARATOR . 'src' . \DIRECTORY_SEPARATOR . 'functions_include.php' => \dirname(__DIR__) . \DIRECTORY_SEPARATOR . 'vendor' . \DIRECTORY_SEPARATOR . 'joshdifabio' . \DIRECTORY_SEPARATOR . 'composed' . \DIRECTORY_SEPARATOR . 'src' . \DIRECTORY_SEPARATOR . 'functions_include.php',
             ],
             $config
         );
