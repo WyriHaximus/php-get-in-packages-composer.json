@@ -1,8 +1,11 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace WyriHaximus\Tests;
 
-use ApiClients\Tools\TestUtilities\TestCase;
+use WyriHaximus\TestUtilities\TestCase;
+
 use function WyriHaximus\from_get_in_packages_composer;
 
 /**
@@ -16,12 +19,18 @@ final class FromGetInPackagesComposerTest extends TestCase
         foreach (from_get_in_packages_composer('config') as $key => $value) {
             $config[$key] = $value;
         }
-        self::assertSame(
+
+        self::assertEquals(
             [
-                'sort-packages' => true,
-                'platform' => [
-                    'php' => '7.2',
+                'allow-plugins' => [
+                    'composer/package-versions-deprecated' => true,
+                    'infection/extension-installer' => true,
+                    'dealerdirect/phpcodesniffer-composer-installer' => true,
+                    'icanhazstring/composer-unused' => true,
+                    'ergebnis/composer-normalize' => true,
                 ],
+                'platform' => ['php' => '7.4.7'],
+                'sort-packages' => true,
             ],
             $config
         );

@@ -1,9 +1,13 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace WyriHaximus\Tests;
 
-use ApiClients\Tools\TestUtilities\TestCase;
-use Composed\Package;
+use WyriHaximus\TestUtilities\TestCase;
+
+use function assert;
+use function is_array;
 use function WyriHaximus\get_in_packages_composer;
 
 /**
@@ -14,20 +18,23 @@ final class GetInPackagesComposerTest extends TestCase
     public function testConfig(): void
     {
         $config = [];
-        /**
-         * @var Package $package
-         * @var array   $value
-         */
         foreach (get_in_packages_composer('config') as $package => $value) {
+            assert(is_array($value));
             $config[$package->getName()] = $value;
         }
-        self::assertSame(
+
+        self::assertEquals(
             [
                 'wyrihaximus/get-in-packages-composer.jason' => [
-                    'sort-packages' => true,
-                    'platform' => [
-                        'php' => '7.2',
+                    'allow-plugins' => [
+                        'composer/package-versions-deprecated' => true,
+                        'infection/extension-installer' => true,
+                        'dealerdirect/phpcodesniffer-composer-installer' => true,
+                        'icanhazstring/composer-unused' => true,
+                        'ergebnis/composer-normalize' => true,
                     ],
+                    'platform' => ['php' => '7.4.7'],
+                    'sort-packages' => true,
                 ],
             ],
             $config
