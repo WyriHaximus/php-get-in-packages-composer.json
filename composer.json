@@ -10,12 +10,13 @@
         }
     ],
     "require": {
-        "php": "^8 || ^7.4",
+        "php": "^8",
+        "drupol/composer-packages": "^2.0",
         "igorw/get-in": "^1.0",
-        "joshdifabio/composed": "^1.0"
+        "mindplay/composer-locator": "^2.1"
     },
     "require-dev": {
-        "wyrihaximus/test-utilities": "^5 || ^3.7.6"
+        "wyrihaximus/test-utilities": "^5"
     },
     "autoload": {
         "files": [
@@ -33,10 +34,12 @@
             "infection/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "icanhazstring/composer-unused": true,
-            "ergebnis/composer-normalize": true
+            "ergebnis/composer-normalize": true,
+            "drupol/composer-packages": true,
+            "mindplay/composer-locator": true
         },
         "platform": {
-            "php": "7.4.7"
+            "php": "8.0.12"
         },
         "sort-packages": true
     },
