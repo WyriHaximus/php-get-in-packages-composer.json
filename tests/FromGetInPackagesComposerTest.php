@@ -28,8 +28,10 @@ final class FromGetInPackagesComposerTest extends TestCase
                     'dealerdirect/phpcodesniffer-composer-installer' => true,
                     'icanhazstring/composer-unused' => true,
                     'ergebnis/composer-normalize' => true,
+                    'drupol/composer-packages' => true,
+                    'mindplay/composer-locator' => true,
                 ],
-                'platform' => ['php' => '7.4.7'],
+                'platform' => ['php' => '8.0.12'],
                 'sort-packages' => true,
             ],
             $config
