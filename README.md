@@ -87,7 +87,7 @@ foreach (GetInPackages::fromComposer('extra.react-inspector.metrics') as $item) 
 ## GetInPackages::composerPath
 
 Building on `GetInPackages::composer`, `GetInPackages::composer_path` iterates over all the config items per package
-coming back from `GetInPackages::composer` and gets the full path for the given items value. This is handy for for
+coming back from `GetInPackages::composer` and gets the full path for the given items value. This is handy for
 example configuration autodiscovery:
 
 ```php
@@ -98,7 +98,7 @@ foreach (GetInPackages::composerPath('extra.reactive-apps.config') as $path) {
 
 ## GetInPackages::composerWithPath
 
-Works the same as `GetInPackages::composer_path` but instead of down a full path per item it use that full path for
+Works the same as `GetInPackages::composer_path` but instead of down a full path per item it uses that full path for
 the item as key and the items key and value. Handy for scanning a file directory and having the namespace for the root
 present:
 

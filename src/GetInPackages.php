@@ -7,17 +7,15 @@ namespace WyriHaximus;
 use Composer\InstalledVersions;
 use Composer\Package\Loader\ArrayLoader;
 use Composer\Package\PackageInterface;
-use ComposerLocator;
-use ComposerPackages\Packages;
 use RuntimeException;
 
-use function assert;
 use function explode;
 use function file_get_contents;
 use function igorw\get_in;
 use function is_iterable;
 use function is_string;
 use function json_decode;
+use function realpath;
 
 use const DIRECTORY_SEPARATOR;
 
@@ -28,20 +26,37 @@ final class GetInPackages
     {
         $packages = [];
         if ($includeRoot) {
-            $packages[Packages::ROOT_PACKAGE_NAME]            = (static function (): array {
-                $rootPackageFileContents = file_get_contents(ComposerLocator::getPath(Packages::ROOT_PACKAGE_NAME) . DIRECTORY_SEPARATOR . 'composer.json');
+            $rootPackageName                       = InstalledVersions::getRootPackage()['name'];
+            $packages[$rootPackageName]            = (static function (string $rootPackageName): array {
+                $rootPackageFileContents = file_get_contents(InstalledVersions::getInstallPath($rootPackageName) . DIRECTORY_SEPARATOR . 'composer.json');
                 if (! is_string($rootPackageFileContents)) {
                     throw new RuntimeException('Unable to read root composer.json');
                 }
 
                 return (array) json_decode($rootPackageFileContents, true);
-            })();
-            $packages[Packages::ROOT_PACKAGE_NAME]['version'] = InstalledVersions::getPrettyVersion(Packages::ROOT_PACKAGE_NAME);
+            })($rootPackageName);
+            $packages[$rootPackageName]['version'] = InstalledVersions::getPrettyVersion($rootPackageName);
+            unset($rootPackageName);
         }
 
-        foreach (Packages::packages() as $name => $configuration) {
-            assert(is_string($name));
-            $packages[$name]            = $configuration;
+        foreach (InstalledVersions::getInstalledPackages() as $name) {
+            if (! InstalledVersions::isInstalled($name, false)) {
+                continue;
+            }
+
+            $installPath = InstalledVersions::getInstallPath($name);
+            if (! is_string($installPath)) {
+                continue;
+            }
+
+            $packages[$name]            = (static function (string $installPath): array {
+                $packageFileContents = file_get_contents($installPath . DIRECTORY_SEPARATOR . 'composer.json');
+                if (! is_string($packageFileContents)) {
+                    throw new RuntimeException('Unable to read root composer.json');
+                }
+
+                return (array) json_decode($packageFileContents, true);
+            })($installPath);
             $packages[$name]['version'] = InstalledVersions::getPrettyVersion($name);
         }
 
@@ -73,7 +88,7 @@ final class GetInPackages
             }
 
             foreach ($items as $item => $itemPath) {
-                yield ComposerLocator::getPath($package->getName()) . DIRECTORY_SEPARATOR . $itemPath;
+                yield self::getPackageRealPath($package) . DIRECTORY_SEPARATOR . $itemPath;
             }
         }
     }
@@ -87,8 +102,20 @@ final class GetInPackages
             }
 
             foreach ($items as $item => $itemPath) {
-                yield ComposerLocator::getPath($package->getName()) . DIRECTORY_SEPARATOR . $itemPath => $item;
+                yield self::getPackageRealPath($package) . DIRECTORY_SEPARATOR . $itemPath => $item;
             }
         }
+    }
+
+    private static function getPackageRealPath(PackageInterface $package): string
+    {
+        $maybeRealPath = (string) InstalledVersions::getInstallPath($package->getName());
+
+        $realPath = realpath($maybeRealPath);
+        if (! is_string($realPath)) {
+            return $maybeRealPath;
+        }
+
+        return $realPath;
     }
 }

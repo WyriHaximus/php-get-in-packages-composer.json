@@ -12,9 +12,7 @@
     "require": {
         "php": "^8.3",
         "ext-json": "^8.3",
-        "drupol/composer-packages": "^2.0",
-        "igorw/get-in": "^1.0.3",
-        "mindplay/composer-locator": "^2.1.5"
+        "igorw/get-in": "^1.0.3"
     },
     "require-dev": {
         "wyrihaximus/makefiles": "^0.4.3",
