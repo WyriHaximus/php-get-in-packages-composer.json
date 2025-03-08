@@ -11,9 +11,7 @@
     ],
     "require": {
         "php": "^8",
-        "drupol/composer-packages": "^2.0",
-        "igorw/get-in": "^1.0",
-        "mindplay/composer-locator": "^2.1"
+        "igorw/get-in": "^1.0"
     },
     "require-dev": {
         "wyrihaximus/test-utilities": "^5"
@@ -34,9 +32,7 @@
             "infection/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "icanhazstring/composer-unused": true,
-            "ergebnis/composer-normalize": true,
-            "drupol/composer-packages": true,
-            "mindplay/composer-locator": true
+            "ergebnis/composer-normalize": true
         },
         "platform": {
             "php": "8.0.12"
