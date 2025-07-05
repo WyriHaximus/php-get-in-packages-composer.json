@@ -16,7 +16,7 @@
         "mindplay/composer-locator": "^2.1"
     },
     "require-dev": {
-        "wyrihaximus/test-utilities": "^5"
+        "wyrihaximus/test-utilities": "^5 || ^7"
     },
     "autoload": {
         "files": [
