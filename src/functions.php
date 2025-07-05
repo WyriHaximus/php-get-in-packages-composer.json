@@ -21,9 +21,7 @@ use function json_decode;
 
 use const DIRECTORY_SEPARATOR;
 
-/**
- * @return iterable<PackageInterface, mixed>
- */
+/** @return iterable<PackageInterface, mixed> */
 function get_in_packages_composer(string $path, bool $includeRoot = true): iterable
 {
     $packages = [];
@@ -56,9 +54,7 @@ function get_in_packages_composer(string $path, bool $includeRoot = true): itera
     }
 }
 
-/**
- * @return iterable<string, mixed>
- */
+/** @return iterable<string, mixed> */
 function from_get_in_packages_composer(string $path, bool $includeRoot = true): iterable
 {
     foreach (get_in_packages_composer($path, $includeRoot) as $items) {
@@ -66,9 +62,7 @@ function from_get_in_packages_composer(string $path, bool $includeRoot = true): 
     }
 }
 
-/**
- * @return iterable<string>
- */
+/** @return iterable<string> */
 function get_in_packages_composer_path(string $path, bool $includeRoot = true): iterable
 {
     foreach (get_in_packages_composer($path, $includeRoot) as $package => $items) {
@@ -82,9 +76,7 @@ function get_in_packages_composer_path(string $path, bool $includeRoot = true): 
     }
 }
 
-/**
- * @return iterable<string, mixed>
- */
+/** @return iterable<string, mixed> */
 function get_in_packages_composer_with_path(string $path, bool $includeRoot = true): iterable
 {
     foreach (get_in_packages_composer($path, $includeRoot) as $package => $items) {

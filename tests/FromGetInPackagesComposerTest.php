@@ -8,9 +8,7 @@ use WyriHaximus\TestUtilities\TestCase;
 
 use function WyriHaximus\from_get_in_packages_composer;
 
-/**
- * @internal
- */
+/** @internal */
 final class FromGetInPackagesComposerTest extends TestCase
 {
     public function testConfig(): void
@@ -30,11 +28,13 @@ final class FromGetInPackagesComposerTest extends TestCase
                     'ergebnis/composer-normalize' => true,
                     'drupol/composer-packages' => true,
                     'mindplay/composer-locator' => true,
+                    'phpstan/extension-installer' => true,
+                    'wyrihaximus/makefiles' => true,
                 ],
-                'platform' => ['php' => '8.0.12'],
+                'platform' => ['php' => '8.3.13'],
                 'sort-packages' => true,
             ],
-            $config
+            $config,
         );
     }
 }

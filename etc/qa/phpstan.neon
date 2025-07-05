@@ -1,6 +1,11 @@
 parameters:
 	ignoreErrors:
-		- '#thecodingmachine/safe#'
-
-includes:
-	- ../../vendor/wyrihaximus/test-utilities/rules.neon
+		-
+			identifier: shipmonk.forbiddenCast
+			path: ../../src/functions.php
+		-
+			identifier: binaryOp.invalid
+			path: ../../src/functions.php
+		-
+			identifier: staticMethod.deprecated
+			path: ../../src/functions.php
