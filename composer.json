@@ -10,13 +10,14 @@
         }
     ],
     "require": {
-        "php": "^8",
+        "php": "^8.3",
         "drupol/composer-packages": "^2.0",
-        "igorw/get-in": "^1.0",
-        "mindplay/composer-locator": "^2.1"
+        "igorw/get-in": "^1.0.3",
+        "mindplay/composer-locator": "^2.1.5"
     },
     "require-dev": {
-        "wyrihaximus/test-utilities": "^5"
+        "wyrihaximus/makefiles": "^0.4.3",
+        "wyrihaximus/test-utilities": "^7.5.2"
     },
     "autoload": {
         "files": [
@@ -31,15 +32,17 @@
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
-            "infection/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "icanhazstring/composer-unused": true,
-            "ergebnis/composer-normalize": true,
             "drupol/composer-packages": true,
-            "mindplay/composer-locator": true
+            "ergebnis/composer-normalize": true,
+            "icanhazstring/composer-unused": true,
+            "infection/extension-installer": true,
+            "mindplay/composer-locator": true,
+            "phpstan/extension-installer": true,
+            "wyrihaximus/makefiles": true
         },
         "platform": {
-            "php": "8.0.12"
+            "php": "8.3.13"
         },
         "sort-packages": true
     },

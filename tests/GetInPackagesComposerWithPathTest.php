@@ -11,9 +11,7 @@ use function WyriHaximus\get_in_packages_composer_with_path;
 
 use const DIRECTORY_SEPARATOR;
 
-/**
- * @internal
- */
+/** @internal */
 final class GetInPackagesComposerWithPathTest extends TestCase
 {
     public function testConfig(): void
