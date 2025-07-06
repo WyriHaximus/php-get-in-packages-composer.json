@@ -38,6 +38,10 @@ final class GetInPackagesComposerTest extends TestCase
                     'platform' => ['php' => '8.3.13'],
                     'sort-packages' => true,
                 ],
+                'composer/composer' => [
+                    'platform' => ['php' => '7.2.5'],
+                    'platform-check' => false,
+                ],
             ],
             $config,
         );

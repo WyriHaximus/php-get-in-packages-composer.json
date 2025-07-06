@@ -31,8 +31,9 @@ final class FromGetInPackagesComposerTest extends TestCase
                     'phpstan/extension-installer' => true,
                     'wyrihaximus/makefiles' => true,
                 ],
-                'platform' => ['php' => '8.3.13'],
+                'platform' => ['php' => '7.2.5'],
                 'sort-packages' => true,
+                'platform-check' => false,
             ],
             $config,
         );
