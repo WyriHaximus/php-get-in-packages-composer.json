@@ -12,7 +12,7 @@
 To install via [Composer](http://getcomposer.org/), use the command below, it will automatically detect the latest version and bind it with `^`.
 
 ```
-composer require wyrihaximus/get-in-packages-composer.jason 
+composer require wyrihaximus/get-in-packages-composer.jason
 ```
 
 # Functions
@@ -52,27 +52,27 @@ The following examples are made with the following `composer.json` in mind:
 }
 ```
 
-## get_in_packages_composer
+## GetInPackages::composer
 
-Get the config for the given key for all packages that have it. Passed the Package instance as key and config from 
-`composer.json` as value: 
+Get the config for the given key for all packages that have it. Passed the Package instance as key and config from
+`composer.json` as value:
 
 ```php
 /**
  * @var Composed\Package $package
  * @var mixed            $config
  */
-foreach (get_in_packages_composer('extra') as $package => $config) {
+foreach (GetInPackages::composer('extra') as $package => $config) {
     $packagesConfig->add($package, $config);
 }
 ```
 
-## from_get_in_packages_composer
+## GetInPackages::fromComposer
 
-Same as `get_in_packages_composer` but `yield from`'s the items in each package: 
+Same as `GetInPackages::composer` but `yield from`'s the items in each package:
 
 ```php
-foreach (from_get_in_packages_composer('extra.react-inspector.metrics') as $item) {
+foreach (GetInPackages::fromComposer('extra.react-inspector.metrics') as $item) {
     // $item: [
     // ticks.future.current,
     // ticks.future.total,
@@ -84,26 +84,26 @@ foreach (from_get_in_packages_composer('extra.react-inspector.metrics') as $item
 }
 ```
 
-## get_in_packages_composer_path
+## GetInPackages::composerPath
 
-Building on `get_in_packages_composer`, `get_in_packages_composer_path` iterates over all the config items per package 
-coming back from `get_in_packages_composer` and gets the full path for the given items value. This is handy for for 
-example configuration autodiscovery:  
+Building on `GetInPackages::composer`, `GetInPackages::composer_path` iterates over all the config items per package
+coming back from `GetInPackages::composer` and gets the full path for the given items value. This is handy for for
+example configuration autodiscovery:
 
 ```php
-foreach (get_in_packages_composer_path('extra.reactive-apps.config') as $path) {
+foreach (GetInPackages::composerPath('extra.reactive-apps.config') as $path) {
     $config->loadFromFile($path);
 }
 ```
 
-## get_in_packages_composer_with_path
+## GetInPackages::composerWithPath
 
-Works the same as `get_in_packages_composer_path` but instead of down a full path per item it use that full path for 
-the item as key and the items key and value. Handy for scanning a file directory and having the namespace for the root 
-present: 
+Works the same as `GetInPackages::composer_path` but instead of down a full path per item it use that full path for
+the item as key and the items key and value. Handy for scanning a file directory and having the namespace for the root
+present:
 
 ```php
-foreach (get_in_packages_composer_with_path('extra.reactive-apps.command') as $path => $namespacePrefix) {
+foreach (GetInPackages::composerWithPath('extra.reactive-apps.command') as $path => $namespacePrefix) {
     $commands->scan($path, $namespacePrefix);
 }
 ```
@@ -112,7 +112,7 @@ foreach (get_in_packages_composer_with_path('extra.reactive-apps.command') as $p
 
 The MIT License (MIT)
 
-Copyright (c) 2018 Cees-Jan Kiewiet
+Copyright (c) 2025 Cees-Jan Kiewiet
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

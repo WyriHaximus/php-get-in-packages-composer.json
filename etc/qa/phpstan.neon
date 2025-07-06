@@ -2,10 +2,13 @@ parameters:
 	ignoreErrors:
 		-
 			identifier: shipmonk.forbiddenCast
-			path: ../../src/functions.php
+			path: ../../src/GetInPackages.php
 		-
 			identifier: binaryOp.invalid
-			path: ../../src/functions.php
+			path: ../../src/GetInPackages.php
 		-
 			identifier: staticMethod.deprecated
-			path: ../../src/functions.php
+			path: ../../src/GetInPackages.php
+		-
+			identifier: shipmonk.checkedExceptionInYieldingMethod
+			path: ../../src/GetInPackages.php
