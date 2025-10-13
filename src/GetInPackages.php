@@ -67,7 +67,7 @@ final class GetInPackages
                 continue;
             }
 
-            yield (new ArrayLoader())->load($package) => $config;
+            yield new ArrayLoader()->load($package) => $config;
         }
     }
 
