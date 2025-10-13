@@ -30,6 +30,7 @@ final class FromGetInPackagesComposerTest extends TestCase
                     'mindplay/composer-locator' => true,
                     'phpstan/extension-installer' => true,
                     'wyrihaximus/makefiles' => true,
+                    'wyrihaximus/test-utilities' => true,
                 ],
                 'platform' => ['php' => '7.2.5'],
                 'sort-packages' => true,

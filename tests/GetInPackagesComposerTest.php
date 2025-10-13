@@ -34,8 +34,9 @@ final class GetInPackagesComposerTest extends TestCase
                         'mindplay/composer-locator' => true,
                         'phpstan/extension-installer' => true,
                         'wyrihaximus/makefiles' => true,
+                        'wyrihaximus/test-utilities' => true,
                     ],
-                    'platform' => ['php' => '8.3.13'],
+                    'platform' => ['php' => '8.4.13'],
                     'sort-packages' => true,
                 ],
                 'composer/composer' => [
