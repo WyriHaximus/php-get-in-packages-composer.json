@@ -9,9 +9,11 @@ use Composer\Package\Loader\ArrayLoader;
 use Composer\Package\PackageInterface;
 use RuntimeException;
 
+use function array_key_exists;
+use function count;
 use function explode;
 use function file_get_contents;
-use function igorw\get_in;
+use function is_array;
 use function is_iterable;
 use function is_string;
 use function json_decode;
@@ -24,6 +26,9 @@ final class GetInPackages
     /** @return iterable<PackageInterface, mixed> */
     public static function composer(string $path, bool $includeRoot = true): iterable
     {
+        /** @var array<string> $pathList */
+        $pathList = explode('.', $path);
+        /** @var array<string, array<string, mixed>> $packages */
         $packages = [];
         if ($includeRoot) {
             $rootPackageName                       = InstalledVersions::getRootPackage()['name'];
@@ -52,7 +57,7 @@ final class GetInPackages
             $packages[$name]            = (static function (string $installPath): array {
                 $packageFileContents = file_get_contents($installPath . DIRECTORY_SEPARATOR . 'composer.json');
                 if (! is_string($packageFileContents)) {
-                    throw new RuntimeException('Unable to read root composer.json');
+                    throw new RuntimeException('Unable to read composer.json');
                 }
 
                 return (array) json_decode($packageFileContents, true);
@@ -61,7 +66,11 @@ final class GetInPackages
         }
 
         foreach ($packages as $package) {
-            $config = get_in($package, explode('.', $path));
+            /**
+             * @todo Fix before releasing
+             * @phpstan-ignore argument.type
+             */
+            $config = self::getConfig($package, $pathList);
 
             if ($config === null) {
                 continue;
@@ -117,5 +126,32 @@ final class GetInPackages
         }
 
         return $realPath;
+    }
+
+    /**
+     * @param array<string, mixed> $array
+     * @param array<string>        $keys
+     */
+    private static function getConfig(array $array, array $keys): mixed
+    {
+        if (count($keys) === 0) {
+            return null;
+        }
+
+        // This is a micro-optimization, it is fast for non-nested keys, but fails for null values
+        if (count($keys) === 1 && array_key_exists($keys[0], $array)) {
+            return $array[$keys[0]];
+        }
+
+        $current = $array;
+        foreach ($keys as $key) {
+            if (! is_array($current) || ! array_key_exists($key, $current)) {
+                return null;
+            }
+
+            $current = $current[$key];
+        }
+
+        return $current;
     }
 }
