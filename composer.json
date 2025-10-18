@@ -12,8 +12,7 @@
   "require": {
     "php": "^8.4",
     "ext-json": "^8.4",
-    "composer/composer": "^2.8",
-    "igorw/get-in": "^1.0.3"
+    "composer/composer": "^2.8"
   },
   "require-dev": {
     "wyrihaximus/makefiles": "^0.7.10",
