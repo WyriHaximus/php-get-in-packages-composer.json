@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WyriHaximus\Tests;
 
+use PHPUnit\Framework\Attributes\Test;
 use WyriHaximus\TestUtilities\TestCase;
 
 use function WyriHaximus\from_get_in_packages_composer;
@@ -11,7 +12,8 @@ use function WyriHaximus\from_get_in_packages_composer;
 /** @internal */
 final class FromGetInPackagesComposerTest extends TestCase
 {
-    public function testConfig(): void
+    #[Test]
+    public function config(): void
     {
         $config = [];
         foreach (from_get_in_packages_composer('config') as $key => $value) {
