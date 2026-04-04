@@ -4,16 +4,17 @@ declare(strict_types=1);
 
 namespace WyriHaximus\Tests;
 
+use PHPUnit\Framework\Attributes\Test;
 use WyriHaximus\TestUtilities\TestCase;
 
 use function assert;
 use function is_array;
 use function WyriHaximus\get_in_packages_composer;
 
-/** @internal */
 final class GetInPackagesComposerTest extends TestCase
 {
-    public function testConfig(): void
+    #[Test]
+    public function config(): void
     {
         $config = [];
         foreach (get_in_packages_composer('config') as $package => $value) {
