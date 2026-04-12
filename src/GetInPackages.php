@@ -118,14 +118,7 @@ final class GetInPackages
 
     private static function getPackageRealPath(PackageInterface $package): string
     {
-        $maybeRealPath = (string) InstalledVersions::getInstallPath($package->getName());
-
-        $realPath = realpath($maybeRealPath);
-        if (! is_string($realPath)) {
-            return $maybeRealPath;
-        }
-
-        return $realPath;
+        return realpath((string) InstalledVersions::getInstallPath($package->getName()));
     }
 
     /**

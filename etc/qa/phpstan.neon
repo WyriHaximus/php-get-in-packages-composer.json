@@ -12,8 +12,5 @@ parameters:
 			identifier: binaryOp.invalid
 			path: ../../src/GetInPackages.php
 		-
-			identifier: shipmonk.checkedExceptionInYieldingMethod
-			path: ../../src/GetInPackages.php
-		-
 			identifier: shipmonk.binaryOperationWithNull
 			path: ../../src/GetInPackages.php
