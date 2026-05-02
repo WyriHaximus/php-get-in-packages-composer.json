@@ -15,8 +15,8 @@
     "composer/composer": "^2.8"
   },
   "require-dev": {
-    "wyrihaximus/makefiles": "^0.10.3",
-    "wyrihaximus/test-utilities": "^12.1.0"
+    "wyrihaximus/makefiles": "^0.10.6",
+    "wyrihaximus/test-utilities": "^12.2.0"
   },
   "autoload": {
     "psr-4": {
